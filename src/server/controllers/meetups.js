@@ -26,4 +26,10 @@ const createMeetups = (req, res) => {
   meetups.push(meetup);
   return res.send(meetup);
 };
-export { createMeetups };
+const getMeetup = (req, res) => {
+  const { id } = req.params;
+  const meetup = meetups.find(m => m.id === parseInt(id));
+  if (!meetup) res.status(404).send('the meetup with a given id doesnot exist');
+  res.send(meetup);
+};
+export { createMeetups, getMeetup };
