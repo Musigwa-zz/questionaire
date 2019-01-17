@@ -32,4 +32,8 @@ const getMeetup = (req, res) => {
   if (!meetup) res.status(404).send('the meetup with a given id doesnot exist');
   res.send(meetup);
 };
-export { createMeetups, getMeetup };
+const getAllMeetups = (req, res) => {
+  res.send(meetups);
+};
+
+export { createMeetups, getMeetup, getAllMeetups };
